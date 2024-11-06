@@ -1,0 +1,119 @@
+---
+import { fade } from "astro:transitions";
+import { slide } from "astro:transitions";
+
+interface Props {
+  body: string;
+  id: string;
+  href: string;
+  imageSrc: string;
+  hoverBg: string;
+  color?: string;
+}
+
+const { body, id, href, imageSrc, hoverBg, color } = Astro.props;
+---
+
+<li data-id={id} class:list={[id, "card-link"]}>
+  <div>
+    <img
+      transition:animate={fade({ duration: "0s" })}
+      transition:name={`card-image-${id}`}
+      id={id}
+      src={imageSrc}
+      alt="#"
+    />
+    <a href={href}>
+      <h2
+        transition:animate={slide({ duration: "1s" })}
+        transition:name={`card-title-${id}`}
+      >
+        {body}
+        <!--?xml version="1.0" encoding="UTF-8"?-->
+      </h2>
+      {!body && <img src="/images/logos/Logga-Trans.png" />}
+    </a>
+  </div>
+</li>
+
+<style define:vars={{ hoverBg, color }}>
+  svg {
+    width: 100px;
+    margin: auto;
+  }
+  li {
+    color: var(--color);
+    /* background-color: var(--bg);    dont need?  */
+    overflow: clip;
+    /* overflow: hidden;  */
+  }
+  /* li:focus-visible :is(div, img, a) {
+    outline: 13px solid #fff;
+    outline-offset: -2rem;
+  } */
+  li:focus-within img,
+  li:hover img {
+    opacity: 0;
+  }
+  li:focus-within a,
+  li:hover a {
+    opacity: 1;
+
+    /* cursor: url(https://cur.cursors-4u.net/food/foo-7/foo643.cur), auto !important; */
+  }
+
+  /* li:focus-within :is(img),
+  li:hover a {
+    opacity: 1;
+  } */
+  li div {
+    background-color: var(--hoverBg);
+    position: relative;
+    /* width: 100%; */
+    height: 100%;
+    z-index: 22;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @media (min-width: 500px) {
+      /* object-position: top; */
+    }
+    /* filter: contrast(140%) brightness(100%) saturate(130%) sepia(5%)
+      hue-rotate(0deg); */
+    /* filter: grayscale(100%) contrast(140%); */
+  }
+  a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    z-index: 10;
+    /* padding-inline: 2rem; */
+  }
+  a:is(:any-link, :visited, :active) {
+    color: currentColor;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+  }
+  a:any-link,
+  a:visited,
+  a:active {
+  }
+
+  h2 {
+    font-family: var(--font-primary-heading);
+    text-align: center;
+    font-size: var(--step-4);
+    line-height: 1;
+  }
+</style>

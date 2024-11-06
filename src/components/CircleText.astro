@@ -1,0 +1,23 @@
+<div class="circle-text">
+  <span><pre>  .&nbsp;&otimes;&nbsp;</pre></span>
+  <h2>Ekologiskt.</h2>
+  <span>&nbsp;&otimes;&nbsp;</span>
+  <h2>Biodynamiskt.</h2>
+</div>
+<script>
+  import CircleType from "circletype";
+  document.addEventListener("astro:page-load", () => {
+    new CircleType(document.querySelector(".circle-text"));
+  });
+</script>
+<style>
+  .circle-text {
+    font-size: 0.5rem;
+    color: var(--color-dark);
+    position: absolute;
+    top: -70%;
+    left: 50%;
+    z-index: 10000;
+    animation: spin 20s infinite forwards;
+  }
+</style>

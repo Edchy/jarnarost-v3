@@ -1,0 +1,257 @@
+@import "open-props/style";
+
+@import "open-props/masks/edges";
+
+@font-face {
+  font-family: "BeVietnamPro";
+  src: url("/fonts/BeVietnamPro-SemiBold.woff2") format("woff2"),
+    url("/fonts/BeVietnamPro-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "JakobHand";
+  src: url("/fonts/jakob-handwriting.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Betelgeuse";
+  src: url("/fonts/Betelgeuse.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bebas";
+  src: url("/fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nacho";
+  src: url("/fonts/NACHOTL_.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+img {
+  border-radius: 2px;
+}
+
+:root {
+  --wrapper: min(100% - 3rem, 960px);
+  --section-divider: 7rem;
+  --section-bottom: 9rem;
+  /* clrs */
+  --coffee: #c0ffee;
+  --color-dark: #333;
+  --color-light: #eeede3;
+  --color-light-transparent: oklch(from var(--color-light) calc(1 - 0.4) c h) --color-brand-1: #f3f2be;
+  --color-light2: #f2f1e6;
+  --color-brand-2: #ef8338;
+  --color-1: #00ffa3;
+  --color-1-dark: oklch(from var(--color-1) calc(1 - 0.4) c h);
+  --color-2: #ef8338;
+  --color-3: #ff54d2;
+  --color-4: #66a3e0;
+  --color-4-dark: #3d64a0;
+  --color-5: #69b8ae;
+  --color-6: #f5eb55;
+  --color-7: #ff6c89;
+  --color-8: #6ea459;
+
+  --font-secondary-heading: "Betelgeuse", sans-serif;
+  --font-primary-heading: "Bebas", Inter, Roboto, "Helvetica Neue", "Arial Nova",
+    "Nimbus Sans", Arial, sans-serif;
+  --font-copy: Optima, Candara, "Noto Sans", source-sans-pro, sans-serif;
+
+  --size-fluid: clamp(1.125rem, 2.5vw, 1.5rem);
+  --step-0: clamp(1.125rem, 1.0682rem + 0.2424vw, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2534rem + 0.4121vw, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.4686rem + 0.6461vw, 1.9531rem);
+  --step-3: clamp(1.944rem, 0.91rem + 4.4116vw, 4.2188rem);
+  --step-4: clamp(2.3328rem, 0.5167rem + 7.7485vw, 6.3281rem);
+}
+
+
+:root {
+  --shadow-color: 0deg 0% 0%;
+  --shadow-elevation-low:
+    0.8px 0.5px 0.8px hsl(var(--shadow-color) / 0.14),
+    1.1px 0.8px 1.2px -2.1px hsl(var(--shadow-color) / 0.1),
+    2.7px 1.9px 2.9px -4.1px hsl(var(--shadow-color) / 0.06);
+  --shadow-elevation-medium:
+    0.8px 0.5px 0.8px hsl(var(--shadow-color) / 0.14),
+    1.6px 1.1px 1.7px -1.4px hsl(var(--shadow-color) / 0.12),
+    4.9px 3.5px 5.3px -2.8px hsl(var(--shadow-color) / 0.09),
+    13.6px 9.7px 14.7px -4.1px hsl(var(--shadow-color) / 0.06);
+  --shadow-elevation-high:
+    0.8px 0.5px 0.8px hsl(var(--shadow-color) / 0.13),
+    1.9px 1.3px 2px -0.6px hsl(var(--shadow-color) / 0.12),
+    3.7px 2.6px 4px -1.2px hsl(var(--shadow-color) / 0.11),
+    7.4px 5.2px 7.9px -1.8px hsl(var(--shadow-color) / 0.09),
+    13.8px 9.8px 14.9px -2.4px hsl(var(--shadow-color) / 0.08),
+    24.2px 17.2px 26.1px -3px hsl(var(--shadow-color) / 0.07),
+    39.5px 28.1px 42.5px -3.6px hsl(var(--shadow-color) / 0.05),
+    60.8px 43.3px 65.5px -4.1px hsl(var(--shadow-color) / 0.04);
+}
+
+.flow>*+* {
+  margin-top: var(--size-fluid-2, 1em);
+}
+
+.brand-color {
+  color: var(--color-1);
+}
+
+.wrapper {
+  width: var(--wrapper);
+  margin-inline: auto;
+}
+
+html {
+  /* font-size: 1rem; */
+  /* font-weight: normal; */
+  /* overflow-x: clip; */
+}
+
+body {
+  font-family: var(--font-copy);
+  background-color: var(--color-brand-2);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  /* background-color: #fff; */
+  /* max-height: 100vh; */
+}
+
+/* main {
+  width: min(100% - 2rem, 1268px);
+  margin-inline: auto;
+} */
+p {
+  /* max-inline-size: var(--size-content-3); */
+  color: var(--color-dark);
+  font-size: var(--step-0);
+  text-wrap: pretty;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary-heading);
+  font-weight: bold;
+  line-height: 1;
+  text-wrap: balance;
+  letter-spacing: 2px;
+}
+
+
+
+a:any-link,
+a:visited {
+  color: currentColor;
+  /* color: var(--color-brand-2); */
+  /* font-weight: bold; */
+  /* text-transform: lowercase; */
+  text-decoration: none;
+  /* text-decoration-color: var(--color-1);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 0.4em; */
+
+  /* transition: opacity 0.2s; */
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.highlight {
+  display: inline-block;
+  background: linear-gradient(100deg,
+      #ffffaf00 1%,
+      #ffffaf 2.5%,
+      #ffffaf80 5.7%,
+      #ffffaf1a 93%,
+      #ffffafb4 95%,
+      #ffffaf00 98%),
+    linear-gradient(182deg, #ffffaf00, #ffffaf4d 8%, #ffffaf00 15%);
+}
+
+.green-highlight {
+  display: inline-block;
+  background: linear-gradient(100deg,
+      #b8ffaf00 1%,
+      #b8ffaf 2.5%,
+      #b8ffaf80 5.7%,
+      #b8ffaf1a 93%,
+      #b8ffafb4 95%,
+      #b8ffaf00 98%),
+    linear-gradient(182deg, #b8ffaf00, #b8ffaf4d 8%, #b8ffaf00 15%);
+}
+
+.pink-highlight {
+  display: inline-block;
+  background: linear-gradient(100deg,
+      #ffafd400 1%,
+      #ffafd4 2.5%,
+      #ffafd480 5.7%,
+      #ffafd41a 93%,
+      #ffafd4b4 95%,
+      #ffafd400 98%),
+    linear-gradient(182deg, #ffafd400, #ffafd44d 8%, #ffafd400 15%);
+}
+
+.blue-highlight {
+  display: inline-block;
+  background: linear-gradient(100deg,
+      #afd7ff00 1%,
+      #afd7ff 2.5%,
+      #afd7ff80 5.7%,
+      #afd7ff1a 93%,
+      #afd7ffb4 95%,
+      #afd7ff00 98%),
+    linear-gradient(182deg, #afd7ff00, #afd7ff4d 8%, #afd7ff00 15%);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hueRotate {
+  from {
+    filter: hue-rotate(0%);
+  }
+
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.spin-animation {
+  /* display: inline-block; */
+  animation: spin 10s linear infinite;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+}

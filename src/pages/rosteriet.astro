@@ -1,0 +1,25 @@
+---
+import Main from "../layouts/Main.astro";
+import Layout from "../layouts/Layout.astro";
+import Carousel from "../components/Carousel.astro";
+import Footer from "../layouts/Footer.astro";
+import Tractor from "../components/Tractor.astro";
+import SpaceParticles from "../components/SpaceParticles.astro";
+---
+
+<Layout
+  title="Järna Rosteri | Om oss."
+  description="På rosteriet ute i Järna, rostar vi varje vecka för att alltid leverera nyrostat kaffe.Processen är enkel – allt görs för hand. Vi vill inte krångla till det – allt handlar om en bra råvara, som vi utvecklar och förädlar genom omsorgsfull rostning."
+  image="/images/Logga-Trans.png"
+>
+  <Main
+    heading="rosteriet"
+    color="var(--color-dark)"
+    bg="var(--color-4-dark)"
+    clipBg="var(--color-4-dark)"
+    transitionName="image-2"
+  />
+  <SpaceParticles />
+</Layout>
+
+<style></style>

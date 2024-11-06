@@ -1,0 +1,219 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import Card from "../components/Card.astro";
+
+import { fade } from "astro:transitions";
+import { slide } from "astro:transitions";
+---
+
+<Layout
+  title=""
+  description="Järna Rosteri | Ekologiskt och Biodynamiskt kaffe."
+  image="/images/Logga-Trans.png"
+>
+  <main>
+    <!-- <img class="full-w-image" src="/images/gallery/img5.avif" alt="" /> -->
+    <h1 class="visually-hidden">Järna Rosteri</h1>
+    <nav>
+      <menu class="card-links">
+        <Card
+          body="Ekologiskt kaffe"
+          id="image-0"
+          hoverBg="var(--color-brand-2)"
+          color="var(--color-light)"
+          href="./kaffe"
+          imageSrc="/images/gallery/img1.avif"
+        />
+        <Card
+          body="#instagram"
+          id="image-1"
+          hoverBg="var(--color-4-dark)"
+          color="var(--color-light)"
+          href="./test"
+          imageSrc="/images/gallery/img2.avif"
+        />
+        <Card
+          body="hantverks rosteri"
+          id="image-2"
+          hoverBg="var(--color-brand-2)"
+          color="var(--color-light)"
+          href="./rosteriet"
+          imageSrc="/images/gallery/img3.avif"
+        />
+        <Card
+          body=""
+          id="image-3"
+          hoverBg="var(--color-4-dark)"
+          color="var(--color-light)"
+          href="#"
+          imageSrc="/images/gallery/img4.avif"
+        />
+        <Card
+          body="kontakt"
+          id="image-4"
+          hoverBg="var(--color-brand-2)"
+          color="var(--color-light)"
+          href="./kontakt2"
+          imageSrc="/images/gallery/img5.avif"
+        />
+        <Card
+          body=": )"
+          id="image-5"
+          hoverBg="var(--color-4-dark)"
+          color="var(--color-light)"
+          href="#"
+          imageSrc="/images/gallery/img6.avif"
+        />
+      </menu>
+    </nav>
+  </main>
+  <script src="../js/cardOpacity.ts"></script>
+  <script src="../js/index.ts"></script>
+  <script src="../js/initialFullscreenImg.js"></script>
+</Layout>
+<style is:global>
+  .active {
+    /* transition: opacity 1.5s; */
+  }
+
+  .active img {
+    opacity: 0;
+    /* transition: opacity 0.3s; */
+  }
+
+  .active a {
+    opacity: 1;
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .visually-hidden {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+    /* padding: 0;
+    margin: -1px;
+    border: 0; */
+  }
+  /* .full-w-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 9999;
+    transition: opacity 1s ease-out;
+  } */
+  .fade-out {
+    opacity: 0;
+  }
+
+  .card-links {
+    display: grid;
+    list-style: none;
+    padding: 0;
+    /* gap: 0.5rem; */
+    grid-template-columns: 1fr;
+    min-height: 100svh;
+  }
+
+  .image-0 {
+    /* animation: var(--animation-slide-in-right); */
+
+    & div {
+      /* border-radius: var(--radius-blob-1); */
+    }
+    & div:hover {
+      /* -webkit-mask: var(--mask-edge-zig-zag-left);
+      -webkit-mask: var(--mask-corner-cut-squares-3);
+      -webkit-mask: var(--mask-edge-drip-bottom); */
+    }
+    & h2 {
+      transform: rotate(-45deg);
+    }
+  }
+  .image-1 {
+    /* animation: var(--animation-slide-in-up); */
+    /* transition: all 2s; */
+    & div {
+      /* border-radius: var(--radius-drawn-3); */
+    }
+    & div:hover {
+      /* -webkit-mask: var(--mask-edge-zig-zag-left); */
+      /* -webkit-mask: var(--mask-corner-cut-squares-2);
+      -webkit-mask: var(--mask-corner-cut-circles-3);
+      -webkit-mask: var(--mask-edge-drip-bottom); */
+    }
+  }
+  .image-2 {
+    /* animation: var(--animation-slide-in-right); */
+    /* transition: all 2s; */
+    /* & div:hover {
+      -webkit-mask: var(--mask-edge-zig-zag-left);
+      -webkit-mask: var(--mask-corner-cut-angles-3);
+      -webkit-mask: var(--mask-edge-drip-bottom);
+    }
+    & h2 {
+      transform: rotate(45deg);
+    } */
+    & h2 {
+      transform: rotate(0deg);
+    }
+  }
+  .image-3 {
+    /* animation: var(--animation-slide-in-right); */
+    /* transition: all 2s; */
+    /* & div:hover {
+      -webkit-mask: var(--mask-corner-cut-angles-3);
+      -webkit-mask: var(--mask-edge-zig-zag-horizontal);
+      -webkit-mask: var(--mask-edge-drip-top);
+    } */
+  }
+  .image-4 {
+    /* animation: var(--animation-slide-in-right); */
+    /* transition: all 2s; */
+    /* & div:hover {
+      -webkit-mask: var(--mask-corner-cut-squares-2);
+      -webkit-mask: var(--mask-corner-cut-circles-3);
+      -webkit-mask: var(--mask-edge-drip-top);
+    } */
+    & h2 {
+      transform: rotate(-180deg);
+    }
+  }
+  .image-5 {
+    /* animation: var(--animation-slide-in-right); */
+    /* transition: all 2s; */
+    /* & div:hover {
+        -webkit-mask: var(--mask-corner-cut-squares-2);
+        -webkit-mask: var(--mask-corner-cut-circles-3);
+        -webkit-mask: var(--mask-edge-scalloped-vertical);
+        -webkit-mask: var(--mask-edge-drip-top);
+      } */
+    & h2 {
+      transform: rotate(-180deg);
+    }
+  }
+  @media (min-width: 500px) {
+    .card-links {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 900px) {
+    .card-links {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+</style>

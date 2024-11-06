@@ -1,0 +1,220 @@
+---
+import Main from "../layouts/Main.astro";
+import Layout from "../layouts/Layout.astro";
+import Carousel from "../components/Carousel.astro";
+import WordCarousel from "../components/WordCarousel.astro";
+import SlantedGridGallery from "../components/SlantedGridGallery.astro";
+import Shader from "../components/Shader.astro";
+import Shader2 from "../components/Shader2.astro";
+import Shader3 from "../components/Shader3.astro";
+import Footer from "../layouts/Footer.astro";
+import Tractor from "../components/Tractor.astro";
+---
+
+<Layout title="Kaffe" description="">
+  <Main
+    heading="kaffet"
+    color="var(--color-brand-2)"
+    clipBg="var(--color-brand-2)"
+    bg="var(--color-dark)"
+    transitionName="image-1"
+  >
+    <div class="grid">
+      <div class="carousel-container container">
+        <Carousel split={false} />
+      </div>
+      <WordCarousel />
+      <div class="shader-container">
+        <Shader3
+          width="100%"
+          height="100%"
+          imageUrl="/images/coffee/brygglabels.avif"
+          colorIntensity={0.3}
+          speed={0.2}
+          chaos={0.4}
+        />
+        <Shader
+          colorIntensity={1}
+          speed={0.4}
+          rippleIntensity={0.2}
+          width="100%"
+          height="100%"
+        />
+
+        <section class="mini-showcase">
+          <div>
+            <button popovertarget="popover1">
+              <img
+                src="/images/coffee/brygg.avif"
+                alt="bag of coffebeans"
+              /></button
+            >
+            <button popovertarget="popover2">
+              <img src="/images/coffee/esp.avif" alt="bag of coffebeans" />
+            </button>
+            <button popovertarget="popover3">
+              <img src="/images/coffee/mellan.avif" alt="bag of coffebeans" />
+            </button>
+            <button popovertarget="popover4">
+              <img
+                src="/images/coffee/espgrande.avif"
+                alt="bag of coffebeans"
+              />
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </Main>
+</Layout>
+
+<style>
+  .mini-showcase {
+    position: absolute;
+    grid-column: 1 / 2;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* top: 0; */
+    & button {
+      background: none;
+      width: 100px;
+      border: none;
+      cursor: pointer;
+      transition:
+        scale 0.2s ease,
+        rotate 0.2s ease;
+      &:hover {
+        scale: 2;
+        rotate: 12deg;
+        z-index: 2;
+      }
+    }
+
+    & div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      /* gap: 2rem; */
+      width: 100%;
+      & img {
+        width: 100%;
+      }
+    }
+  }
+  .grid {
+    position: relative;
+    display: grid;
+    @media (min-width: 1000px) {
+      /* grid-template-columns: 1fr 100px 1fr; */
+    }
+  }
+
+  /* From Uiverse.io by escannord */
+  .container {
+    /* width: 100%;
+    height: 100%; */
+    --color-1: var(--color-light);
+    --color-2: var(--color-dark);
+    --bg: linear-gradient(
+        45deg,
+        var(--color-2) 25%,
+        transparent 25%,
+        transparent 75%,
+        var(--color-2) 75%,
+        var(--color-2)
+      ),
+      linear-gradient(
+        45deg,
+        var(--color-2) 25%,
+        var(--color-1) 25%,
+        var(--color-1) 75%,
+        var(--color-2) 75%,
+        var(--color-2)
+      );
+    --bgsize: 60px 60px;
+    --bgposition: 0 0, 30px 30px;
+    background-color: white;
+    background-image: var(--bg);
+    background-size: var(--bgsize);
+    background-position: var(--bgposition);
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    overflow: clip;
+    box-shadow: inset 0px 0px 500px rgb(15, 15, 15);
+  }
+
+  .container::before {
+    content: "";
+    width: 100%;
+    height: 150%;
+    box-shadow:
+      0px -25px 200px black,
+      inset 0px 100px 500px rgba(15, 15, 15, 0.883);
+    position: absolute;
+    top: 55%;
+    background-image: var(--bg);
+    background-size: var(--bgsize);
+    background-position: var(--bgposition);
+    transform-origin: top;
+    transform: rotateX(80deg);
+  }
+
+  .carousel-container {
+    /* grid-column: 1 / -1; */
+    display: grid;
+    /* border-radius: 100vw; */
+    align-items: center;
+    /* height: 20vh; */
+    /* grid-template-columns: 1fr 1fr; */
+    /* max-width: 100%; */
+    /* background: url("./images/andy-wang.avif");
+    background-position: center; */
+    background-color: var(--color-brand-2);
+    /* background-blend-mode: luminosity; */
+    /* border-radius: var(--radius-drawn-5); */
+    /* background: url("/images/andy-wang.avif");
+    background: url("/images/urban.jpg"); */
+    /* background: url("/images/gallery/img2.avif"); */
+    /* background-position: center;
+    background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-size: 200px; */
+    background-color: var(--color-4-dark);
+    background-color: var(--color-7);
+    background-color: var(--color-4-dark);
+    background-color: var(--color-brand-2);
+    background-color: var(--color-dark);
+    background-blend-mode: color-dodge;
+    /* background-blend-mode: difference; */
+    /* background-blend-mode: darken; */
+    /* Add your background pattern here */
+    background-image: radial-gradient(
+      rgba(253, 253, 253, 0.079) 2px,
+      transparent 0
+    );
+    background-size: 30px 30px;
+    background-position: -5px -5px;
+    /* background: repeating-radial-gradient(
+      circle at 50%,
+      var(--color-4-dark),
+      var(--color-brand-2) 1em,
+      white 1em,
+      white 2em
+    ); */
+
+    z-index: 1000;
+  }
+  .shader-container {
+    min-height: 50vh;
+    @media (min-width: 700px) {
+      height: auto;
+    }
+    position: relative;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+</style>

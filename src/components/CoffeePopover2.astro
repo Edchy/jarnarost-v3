@@ -1,0 +1,97 @@
+---
+import Shader3 from "./Shader3.astro";
+import SlantedGridGallery from "./SlantedGridGallery.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  imageSrc: string;
+  bg?: string;
+  bgColor?: string;
+  blendMode?: string;
+}
+
+const {
+  id,
+  imageSrc,
+  title,
+  bg = "url('/images/andy-wang.avif')",
+  bgColor,
+  blendMode,
+} = Astro.props;
+---
+
+<div popover id={id}>
+  <div class="popover-wrapper">
+    <div class="title">
+      <span>poabs</span>
+      <h2>{title}</h2>
+    </div>
+    <!-- <img src="/images/logos/demeter.avif" alt="" /> -->
+    <img src={imageSrc} alt="bag of coffebeans" />
+
+    <p>
+      På våran resa genom södra Indien hittade vi den biodynamiska gården Poabs.
+      Gården ligger högt i bergen och drivs som ett slutet kretslopp där allt
+      tas tillvara på. Smaken är fyllig och väl balanserad med härligt söta
+      toner. Omsorgsfullt rostat!
+    </p>
+    <!-- <img src="/images/qr.png" alt="" /> -->
+    <!-- <SlantedGridGallery title={title} /> -->
+  </div>
+</div>
+
+<style define:vars={{ bg, blendMode, bgColor }}>
+  .popover-wrapper {
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    padding-top: 5rem;
+    & h2 {
+      font-size: 15rem;
+      text-align: left;
+      color: var(--color-light);
+    }
+    & span {
+      display: block;
+      font-variant: small-caps;
+      font-size: 4rem;
+      font-family: var(--font-primary-heading);
+      color: var(--color-light);
+      text-align: left;
+      padding-left: 4px;
+      line-height: 0.2;
+    }
+    & p {
+      color: var(--color-light);
+      text-align: left;
+      border: 1px solid white;
+      background-color: blue;
+    }
+  }
+  [popover] img {
+    max-width: 250px;
+    /* align-self: center; */
+    justify-self: center;
+    grid-row: span 2;
+  }
+
+  [popover] {
+    background: var(--bg);
+    background-color: var(--bgColor, var(--color-4-dark));
+    background-blend-mode: var(--blendMode, color-burn);
+    background-position: top;
+    border: none;
+    /* inset: 0; */
+    /* left: 0%; */
+    width: min(80%, 1000px);
+    height: 95%;
+    margin: auto;
+    /* display: flex; */
+    /* align-items: center; */
+  }
+  [popover]::backdrop {
+    background-color: rgba(3, 13, 5, 0.641);
+  }
+</style>

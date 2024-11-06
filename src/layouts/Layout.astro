@@ -1,0 +1,72 @@
+---
+import "../styles/reset.css";
+import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+import Footer from "./Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "Järna Rosteri",
+  description = "Järna Rosteri - Ekologiskt och biodynamiskt kaffe",
+  image = "/images/logos/Logga-Trans.png",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const pageTitle = title ? `Järna Rosteri | ${title}` : "Järna Rosteri";
+---
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/fav.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="kaffe, rosteri, ekologiskt, biodynamiskt, demeter, brygg, espresso"
+    />
+    <meta name="author" content="Järna Rosteri1" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <link rel="canonical" href={canonicalURL} />
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/media-chrome@4/+esm"
+    ></script> -->
+    <!-- Additional head content -->
+    <slot name="head" />
+    <ViewTransitions />
+  </head>
+
+  <body>
+    <slot />
+    <!-- <script>
+      import "aos/dist/aos.css";
+      import AOS from "aos";
+
+      document.addEventListener("astro:page-load", () => {
+        AOS.init();
+      });
+    </script> -->
+  </body>
+</html>

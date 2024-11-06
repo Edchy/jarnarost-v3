@@ -1,0 +1,19 @@
+{
+  "name": "jarna-rost",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "aos": "^3.0.0-beta.6",
+    "astro": "^4.14.3",
+    "circletype": "^2.3.0",
+    "open-props": "^1.7.5",
+    "three": "^0.169.0"
+  }
+}

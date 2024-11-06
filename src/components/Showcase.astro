@@ -1,0 +1,120 @@
+---
+const altText = "A bag of coffeebeans";
+import Carousel from "./Carousel.astro";
+---
+
+<section class="showcase">
+  <img
+    class="demeter-logo"
+    src="/images/logos/demeter.avif"
+    alt="Demeter logo"
+  />
+  <div class="bg-img">
+    <!-- <div class="zigzag"></div> -->
+
+    <div class="grid">
+      <div class="img-container">
+        <img
+          data-aos-offset="100"
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+          src="/images/coffee/espgrande.avif"
+          alt={altText}
+        />
+      </div>
+
+      <div class="img-container">
+        <img
+          data-aos-offset="100"
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+          src="/images/coffee/esp.avif"
+          alt={altText}
+        />
+      </div>
+      <div class="img-container">
+        <img
+          data-aos-offset="100"
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+          src="/images/coffee/mellan.avif"
+          alt={altText}
+        />
+      </div>
+      <div class="img-container">
+        <img
+          data-aos-offset="100"
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+          src="/images/coffee/brygg.avif"
+          alt={altText}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  p {
+    margin-inline: auto;
+  }
+  .bg-img {
+    background-image: url("/images/andy-wang.avif");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: var(--color-4-dark);
+    background-blend-mode: luminosity;
+    /* padding-bottom: 4rem; */
+  }
+  .showcase {
+    position: relative;
+    margin-block-start: var(--section-divider);
+  }
+  .demeter-logo {
+    position: absolute;
+    z-index: 999;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+  }
+  .grid {
+    /* width: var(--wrapper); */
+    margin-inline: auto;
+    /* padding-inline: min(2vw, 4rem); */
+    /* padding-block: 12rem; */
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  img {
+    margin-inline: auto;
+    width: min(100%, 100px);
+  }
+  .img-container:nth-child(1) {
+    transform: rotate(180deg);
+  }
+  .img-container:nth-child(3) {
+    transform: rotate(180deg);
+  }
+  /* .img-container:nth-child(3) {
+    transform: rotate(45deg);
+  }
+  .img-container:nth-child(4) {
+    transform: rotate(-45deg);
+  } */
+
+  @media (min-width: 400px) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    img {
+      /* width: 50%; */
+    }
+  }
+</style>

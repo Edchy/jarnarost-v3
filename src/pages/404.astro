@@ -1,0 +1,55 @@
+---
+import BackBtn from "../components/BackBtn.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Page not found" description="This page doesnt seem to exist">
+  <section>
+    <div>
+      <h2>Oops! Sidan finns inte...</h2>
+      <p>Sorry!</p>
+      <a href="/">Ta mig hem</a>
+    </div>
+    <img src="/images/decorations/mashed.jpg" alt="" />
+  </section>
+</Layout>
+
+<style>
+  section {
+    min-height: 100vh;
+    background-color: #f5f3c2;
+  }
+  div {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  p {
+    font-size: 2rem;
+  }
+  img {
+    height: 100vh;
+    object-fit: contain;
+    width: 100%;
+  }
+  a {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    display: block;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    background-color: var(--color-brand-2);
+    transition: scale 0.2s;
+  }
+  a:hover {
+    opacity: 1;
+    scale: 1.1;
+  }
+</style>
