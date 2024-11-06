@@ -1,8 +1,6 @@
 ---
 import "../styles/reset.css";
 import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
-import Footer from "./Footer.astro";
 
 interface Props {
   title: string;
@@ -34,7 +32,7 @@ const pageTitle = title ? `Järna Rosteri | ${title}` : "Järna Rosteri";
       name="keywords"
       content="kaffe, rosteri, ekologiskt, biodynamiskt, demeter, brygg, espresso"
     />
-    <meta name="author" content="Järna Rosteri1" />
+    <meta name="author" content="Järna Rosteri" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -51,22 +49,9 @@ const pageTitle = title ? `Järna Rosteri | ${title}` : "Järna Rosteri";
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
     <link rel="canonical" href={canonicalURL} />
-    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/media-chrome@4/+esm"
-    ></script> -->
-    <!-- Additional head content -->
-    <slot name="head" />
-    <ViewTransitions />
   </head>
 
   <body>
     <slot />
-    <!-- <script>
-      import "aos/dist/aos.css";
-      import AOS from "aos";
-
-      document.addEventListener("astro:page-load", () => {
-        AOS.init();
-      });
-    </script> -->
   </body>
 </html>

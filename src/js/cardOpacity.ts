@@ -33,7 +33,7 @@
   updateCardOpacity();
 
   // Run on subsequent navigations to this page
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     // Check if we're on the index page
     if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
       updateCardOpacity();
