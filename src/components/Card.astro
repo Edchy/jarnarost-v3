@@ -5,7 +5,7 @@ import { slide } from "astro:transitions";
 interface Props {
   body: string;
   id: string;
-  href: string;
+  href?: string;
   imageSrc: string;
   hoverBg: string;
   color?: string;
@@ -16,32 +16,67 @@ const { body, id, href, imageSrc, hoverBg, color } = Astro.props;
 
 <li data-id={id} class:list={[id, "card-link"]}>
   <div>
-    <img
-      transition:animate={fade({ duration: "0s" })}
-      transition:name={`card-image-${id}`}
-      id={id}
-      src={imageSrc}
-      alt="#"
-    />
-    <a href={href}>
-      <h2
-        transition:animate={slide({ duration: "1s" })}
-        transition:name={`card-title-${id}`}
-      >
-        {body}
-      </h2>
-      {
-        !body && (
-          <div>
-            <img class="logo" src="/images/logos/logo.avif" />
-          </div>
-        )
-      }
-    </a>
+    <img id={id} src={imageSrc} alt="#" />
+    {
+      href !== "#" ? (
+        <a href={href} class="x">
+          <h2>{body}</h2>
+          {!body && (
+            <div>
+              <img class="logo" src="/images/logos/logo.avif" />
+            </div>
+          )}
+        </a>
+      ) : (
+        <div class="x">
+          {/* <h2>{body !== "kontakt" ? body : ""}</h2> */}
+          <h2>{body}</h2>
+          {body === "kontakt" && (
+            <address>
+              <a href="mailto:info@jarnarosteri.se">order</a>
+              <a href="mailto:info@jarnarosteri.se">ekonomi</a>
+              <a href="tel:0708401365">070 - 840 13 65</a>
+              <a href="mailto:info@jarnarosteri.se">info@jarnarosteri.se</a>
+            </address>
+          )}
+          {!body && (
+            <div>
+              <img class="logo" src="/images/logos/logo.avif" />
+            </div>
+          )}
+        </div>
+      )
+    }
   </div>
 </li>
 
 <style define:vars={{ hoverBg, color }}>
+  address {
+    padding-top: 2rem;
+    font-family: var(--font-copy);
+    font-family: var(--font-primary-heading);
+    font-size: var(--step-1);
+    /* font-size: 4rem; */
+    /* height: 50%; */
+    width: 100%;
+    text-align: center;
+    display: grid;
+    /* gap: 2rem; */
+    grid-template-columns: 1fr;
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    /* outline: 1px solid white; */
+    /* text-decoration: overline; */
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    & a {
+      opacity: 1;
+      &:hover {
+        color: oklch(from var(--hoverBg) calc(1 - 0.4) c h);
+      }
+    }
+  }
   .logo {
     width: 20vw;
   }
@@ -55,10 +90,10 @@ const { body, id, href, imageSrc, hoverBg, color } = Astro.props;
   li:hover img:not(.logo) {
     opacity: 0;
   }
-  li:focus-within a,
-  li:hover a {
+  li:focus-within .x,
+  li:hover .x {
     opacity: 1;
-    cursor: url(https://cur.cursors-4u.net/food/foo-7/foo643.cur), auto;
+    /* cursor: url(https://cur.cursors-4u.net/food/foo-7/foo643.cur), auto; */
     /* cursor: crosshair; */
   }
 
@@ -90,7 +125,7 @@ const { body, id, href, imageSrc, hoverBg, color } = Astro.props;
     left: 50%;
     transform: translate(-50%, -50%);
   } */
-  a {
+  .x {
     width: 100%;
     height: 100%;
     display: flex;
@@ -111,5 +146,9 @@ const { body, id, href, imageSrc, hoverBg, color } = Astro.props;
     font-size: var(--step-3);
     line-height: 1;
     word-spacing: 100vw;
+    transition: color 0.3s ease;
+    &:hover {
+      color: oklch(from var(--hoverBg) calc(1 - 0.4) c h);
+    }
   }
 </style>

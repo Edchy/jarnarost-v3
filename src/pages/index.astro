@@ -15,7 +15,7 @@ import Card from "../components/Card.astro";
         <Card
           body="Ekologiskt kaffe"
           id="image-0"
-          hoverBg="var(--color-brand-2)"
+          hoverBg="var(--color-1)"
           color="var(--color-light)"
           href="#"
           imageSrc="/images/gallery/img1.avif"
@@ -23,9 +23,9 @@ import Card from "../components/Card.astro";
         <Card
           body="#instagram"
           id="image-1"
-          hoverBg="var(--color-4-dark)"
+          hoverBg="var(--color-7)"
           color="var(--color-light)"
-          href="#"
+          href="https://www.instagram.com/jarnarosteri/"
           imageSrc="/images/gallery/img2.avif"
         />
         <Card
@@ -39,7 +39,7 @@ import Card from "../components/Card.astro";
         <Card
           body=""
           id="image-3"
-          hoverBg="var(--color-4-dark)"
+          hoverBg="var(--color-8)"
           color="var(--color-light)"
           href="#"
           imageSrc="/images/gallery/img4.avif"
@@ -47,7 +47,7 @@ import Card from "../components/Card.astro";
         <Card
           body="kontakt"
           id="image-4"
-          hoverBg="var(--color-brand-2)"
+          hoverBg="var(--color-3)"
           color="var(--color-light)"
           href="#"
           imageSrc="/images/gallery/img5.avif"
@@ -63,20 +63,10 @@ import Card from "../components/Card.astro";
       </menu>
     </nav>
   </main>
-  <!-- <script src="../js/cardOpacity.ts"></script> -->
+  <script src="../js/cardOpacity.ts"></script>
   <script src="../js/index.ts"></script>
 </Layout>
 <style is:global>
-  .visually-hidden {
-    clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
-    position: absolute;
-    overflow: hidden;
-    width: 1px;
-    height: 1px;
-    white-space: nowrap;
-  }
-
   .card-links {
     display: grid;
     list-style: none;
@@ -100,7 +90,7 @@ import Card from "../components/Card.astro";
     transform: rotate(0deg);
   }
   .image-4 h2 {
-    transform: rotate(0deg);
+    transform: rotate(180deg);
   }
   .image-5 h2 {
     transform: rotate(90deg);

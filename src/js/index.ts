@@ -21,7 +21,7 @@ async function loadImages() {
     "/images/coffee/brygg-white.avif",
     "/images/coffee/espgrande-white.avif",
     "/images/coffee/mellan-white.avif",
-    "/images/coffee/espgrande-white.avif",
+    "/images/coffee/esp-white.avif",
   ];
   let specialImageIndex = 0;
 
@@ -33,7 +33,7 @@ async function loadImages() {
       hoverCount++;
 
       // Every third hover, show a special image
-      if (hoverCount % 3 === 0) {
+      if (hoverCount % 4 === 0) {
         img.src = specialImages[specialImageIndex];
         // img.classList.add("special-image");
         specialImageIndex = (specialImageIndex + 1) % specialImages.length;
