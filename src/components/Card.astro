@@ -59,15 +59,23 @@ const alt =
     const cardLinks = document.querySelectorAll(".card-link");
 
     cardLinks.forEach((li) => {
-      li.addEventListener("click", () => {
+      li.addEventListener("click", (event) => {
+        event.preventDefault();
         li.classList.toggle("focused");
       });
+
+      li.addEventListener("touchstart", (event) => {
+        event.preventDefault();
+        li.classList.toggle("focused");
+      });
+
       li.addEventListener("mouseenter", () => {
         li.classList.add("focused");
       });
-      // li.addEventListener("mouseleave", () => {
-      //   li.classList.remove("focused");
-      // });
+
+      li.addEventListener("mouseleave", () => {
+        li.classList.remove("focused");
+      });
     });
   });
 </script>
