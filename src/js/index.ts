@@ -56,25 +56,23 @@ async function loadImages() {
         img.src = images[imageIndex++];
       }
     });
-    article.addEventListener("click", () => {
-      const img = article.querySelector("img");
-      if (!img) return;
+    // article.addEventListener("click", () => {
+    //   const img = article.querySelector("img");
+    //   if (!img) return;
 
-      hoverCount++;
+    //   hoverCount++;
 
-      // Every third hover, show a special image
-      if (hoverCount % 4 === 0) {
-        img.src = specialImages[specialImageIndex];
-        specialImageIndex = (specialImageIndex + 1) % specialImages.length;
-      } else {
-        // Regular random image behavior
-        if (imageIndex >= images.length) {
-          shuffle(images);
-          imageIndex = 0;
-        }
-        img.src = images[imageIndex++];
-      }
-    });
+    //   if (hoverCount % 4 === 0) {
+    //     img.src = specialImages[specialImageIndex];
+    //     specialImageIndex = (specialImageIndex + 1) % specialImages.length;
+    //   } else {
+    //     if (imageIndex >= images.length) {
+    //       shuffle(images);
+    //       imageIndex = 0;
+    //     }
+    //     img.src = images[imageIndex++];
+    //   }
+    // });
 
     // Add touch event listeners for iOS
     // article.addEventListener("touchstart", () => {
