@@ -2,20 +2,19 @@ async function loadImages() {
   const response = await fetch("../data/images.json");
   let images = await response.json();
   shuffle(images);
-  
+
   // Initial loading of first 6 images
   images.slice(0, 6).forEach((src: string, i: number) => {
     const img = document.getElementById(`image-${i}`) as HTMLImageElement;
     if (img) {
       img.src = src;
-      // img.classList.remove('special-image');
     }
   });
 
-  const articles = document.querySelectorAll(".card-links li:not(.logo-card)");
+  const articles = document.querySelectorAll(".card-links li");
   let imageIndex = 6;
   let hoverCount = 0;
-  
+
   // Your specific images to show every third hover
   const specialImages = [
     "/images/coffee/brygg-white.avif",
@@ -24,6 +23,18 @@ async function loadImages() {
     "/images/coffee/esp-white.avif",
   ];
   let specialImageIndex = 0;
+
+  // Assign random images to articles initially
+  articles.forEach((article, index) => {
+    const img = article.querySelector("img");
+    if (img) {
+      if (index < images.length) {
+        img.src = images[index];
+      } else {
+        img.src = images[index % images.length];
+      }
+    }
+  });
 
   articles.forEach((article) => {
     article.addEventListener("mouseenter", () => {
@@ -35,7 +46,6 @@ async function loadImages() {
       // Every third hover, show a special image
       if (hoverCount % 4 === 0) {
         img.src = specialImages[specialImageIndex];
-        // img.classList.add("special-image");
         specialImageIndex = (specialImageIndex + 1) % specialImages.length;
       } else {
         // Regular random image behavior
@@ -44,7 +54,27 @@ async function loadImages() {
           imageIndex = 0;
         }
         img.src = images[imageIndex++];
-        // img.classList.remove("special-image"); 
+      }
+    });
+
+    // Add touch event listeners for iOS
+    article.addEventListener("touchstart", () => {
+      const img = article.querySelector("img");
+      if (!img) return;
+
+      hoverCount++;
+
+      // Every third hover, show a special image
+      if (hoverCount % 4 === 0) {
+        img.src = specialImages[specialImageIndex];
+        specialImageIndex = (specialImageIndex + 1) % specialImages.length;
+      } else {
+        // Regular random image behavior
+        if (imageIndex >= images.length) {
+          shuffle(images);
+          imageIndex = 0;
+        }
+        img.src = images[imageIndex++];
       }
     });
   });
@@ -58,4 +88,3 @@ function shuffle(array: string[]): void {
 }
 
 document.addEventListener("DOMContentLoaded", loadImages);
-loadImages();
