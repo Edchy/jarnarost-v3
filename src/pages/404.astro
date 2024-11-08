@@ -5,9 +5,9 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Page not found" description="This page doesnt seem to exist">
   <section>
     <div>
-      <h2>Oops! Sidan finns inte...</h2>
-      <p>Sorry!</p>
-      <a href="/">Ta mig hem</a>
+      <h2>Oops!</h2>
+      <p>Denna sida finns inte...Sorry!</p>
+      <a href="/">Tillbaks</a>
     </div>
     <img src="/images/decorations/mashed.jpg" alt="" />
   </section>
@@ -15,11 +15,12 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
   section {
-    min-height: 100vh;
+    max-height: 100vh;
     background-color: #f5f3c2;
+    font-family: var(--font-copy);
   }
   div {
-    font-size: 3rem;
+    font-size: var(--step-1);
     display: flex;
     flex-direction: column;
     align-items: center;
