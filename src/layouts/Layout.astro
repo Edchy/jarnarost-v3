@@ -47,6 +47,49 @@ const {
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
     <link rel="canonical" href={canonicalURL} />
+
+    <!-- Structured data -->
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Järna Rosteri",
+        "description": "På rosteriet ute i Järna rostar vi varje vecka för att alltid leverera nyrostat kaffe. Processen är enkel och allt görs för hand. Vi vill inte krångla till det, allt handlar om en bra råvara som vi utvecklar genom rostning.",
+        "url": "https://www.jarnarosteri.se",
+        "logo": "https://www.jarnarosteri.se/images/logos/logo.avif",
+        "sameAs": ["https://www.instagram.com/jarnarosteri/"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+46708401365",
+          "email": "info@jarnarosteri.se",
+          "contactType": "customer service"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Maskinvägen 5",
+          "addressLocality": "Järna",
+          "addressRegion": "Stockholm",
+          "postalCode": "15330",
+          "addressCountry": "Sweden"
+        }
+      }
+      {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Järna Rosteri Organic Coffee",
+  "image": [
+    "https://www.jarnarosteri.se/images/coffee/brygg-white.avif",
+    "https://www.jarnarosteri.se/images/coffee/espgrande-white.avif",
+    "https://www.jarnarosteri.se/images/coffee/mellan-white.avif",
+    "https://www.jarnarosteri.se/images/coffee/esp-white.avif"
+  ],
+  "description": "Organic and biodynamic coffee roasted weekly to ensure freshness. Simple process, all done by hand. We don't overcomplicate it, it's all about the great raw material that we develop through roasting.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Järna Rosteri"
+  },
+}
+    </script>
   </head>
 
   <body>
