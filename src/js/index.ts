@@ -75,23 +75,23 @@ async function loadImages() {
     });
 
     // Add touch event listeners for iOS
-    // article.addEventListener("touchstart", () => {
-    //   const img = article.querySelector("img");
-    //   if (!img) return;
+    article.addEventListener("touchstart", () => {
+      const img = article.querySelector("img");
+      if (!img) return;
 
-    //   hoverCount++;
+      hoverCount++;
 
-    //   if (hoverCount % 4 === 0) {
-    //     img.src = specialImages[specialImageIndex];
-    //     specialImageIndex = (specialImageIndex + 1) % specialImages.length;
-    //   } else {
-    //     if (imageIndex >= images.length) {
-    //       shuffle(images);
-    //       imageIndex = 0;
-    //     }
-    //     img.src = images[imageIndex++];
-    //   }
-    // });
+      if (hoverCount % 4 === 0) {
+        img.src = specialImages[specialImageIndex];
+        specialImageIndex = (specialImageIndex + 1) % specialImages.length;
+      } else {
+        if (imageIndex >= images.length) {
+          shuffle(images);
+          imageIndex = 0;
+        }
+        img.src = images[imageIndex++];
+      }
+    });
   });
 }
 
