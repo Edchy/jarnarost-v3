@@ -54,18 +54,16 @@ const alt =
     }
   </div>
 </li>
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", () => {
     const cardLinks = document.querySelectorAll(".card-link");
 
     cardLinks.forEach((li) => {
-      li.addEventListener("click", (event) => {
-        // event.preventDefault();
+      li.addEventListener("click", () => {
         li.classList.toggle("focused");
       });
 
-      li.addEventListener("touchstart", (event) => {
-        // event.preventDefault();
+      li.addEventListener("touchstart", () => {
         li.classList.toggle("focused");
       });
 
@@ -78,7 +76,7 @@ const alt =
       });
     });
   });
-</script>
+</script> -->
 <style define:vars={{ hoverBg, color }}>
   address {
     padding-top: 2rem;
@@ -115,7 +113,7 @@ const alt =
     opacity: 1;
   }
 
-  /* li:focus-within img:not(.logo),
+  li:focus-within img:not(.logo),
   li:hover img:not(.logo) {
     opacity: 0;
   }
@@ -123,7 +121,7 @@ const alt =
   li:focus-within .x,
   li:hover .x {
     opacity: 1;
-  } */
+  }
 
   li div {
     background-color: var(--hoverBg);
