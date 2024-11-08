@@ -30,19 +30,22 @@ const alt =
         </a>
       ) : (
         <div class="x">
-          {/* <h2>{body !== "kontakt" ? body : ""}</h2> */}
-          <h2>{body}</h2>
+          {body && <h2>{body}</h2>}
           {body === "kontakt" && (
             <address>
               <a href="mailto:info@jarnarosteri.se">order</a>
               <a href="mailto:info@jarnarosteri.se">ekonomi</a>
-              <a href="tel:0708401365">070 - 840 13 65</a>
+              <a href="tel:0708401365">070-840 13 65</a>
               <a href="mailto:info@jarnarosteri.se">info@jarnarosteri.se</a>
             </address>
           )}
           {!body && (
             <div>
-              <img class="logo" src="/images/logos/logo.avif" />
+              <img
+                class="logo"
+                src="/images/logos/logo.avif"
+                alt="company logo"
+              />
             </div>
           )}
         </div>
@@ -54,7 +57,6 @@ const alt =
 <style define:vars={{ hoverBg, color }}>
   address {
     padding-top: 2rem;
-    font-family: var(--font-copy);
     font-family: var(--font-primary-heading);
     font-size: var(--step-1);
     /* font-size: 4rem; */
@@ -72,14 +74,15 @@ const alt =
     font-style: normal;
     font-weight: bold;
     & a {
-      opacity: 1;
+      font-family: var(--font-copy);
+
       &:hover {
         color: oklch(from var(--hoverBg) calc(1 - 0.4) c h);
       }
     }
   }
   .logo {
-    width: 20vw;
+    width: max(280px, 22vw);
   }
 
   li {

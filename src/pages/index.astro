@@ -10,13 +10,12 @@ import Card from "../components/Card.astro";
 >
   <main>
     <h1 class="visually-hidden">Järna Rosteri</h1>
-    <div class="kladd">Jarna Rosteri</div>
     <nav>
       <menu class="card-links">
         <Card
           body="Ekologiskt kaffe"
           id="image-0"
-          hoverBg="var(--color-1)"
+          hoverBg="var(--color-brand-2)"
           color="var(--color-light)"
           href="#"
           imageSrc="/images/gallery/img1.avif"
@@ -24,7 +23,7 @@ import Card from "../components/Card.astro";
         <Card
           body="#instagram"
           id="image-1"
-          hoverBg="var(--color-7)"
+          hoverBg="var(--color-4-dark)"
           color="var(--color-light)"
           href="https://www.instagram.com/jarnarosteri/"
           imageSrc="/images/gallery/img21.avif"
@@ -40,7 +39,7 @@ import Card from "../components/Card.astro";
         <Card
           body=""
           id="image-3"
-          hoverBg="var(--color-8)"
+          hoverBg="#FFF"
           color="var(--color-light)"
           href="#"
           imageSrc="/images/gallery/img4.avif"
@@ -48,7 +47,7 @@ import Card from "../components/Card.astro";
         <Card
           body="kontakt"
           id="image-4"
-          hoverBg="var(--color-3)"
+          hoverBg="var(--color-brand-2)"
           color="var(--color-light)"
           href="#"
           imageSrc="/images/gallery/img5.avif"
@@ -65,72 +64,19 @@ import Card from "../components/Card.astro";
     </nav>
   </main>
   <script src="../js/index.ts"></script>
-  <script>
-    // Add this to your cardOpacity.ts or create a new script.ts file
-    document.addEventListener("DOMContentLoaded", () => {
-      let lastMouseMoveTime: number = Date.now();
-
-      document.addEventListener("mousemove", () => {
-        lastMouseMoveTime = Date.now();
-      });
-
-      const checkHoverContentVisibility = () => {
-        const now: number = Date.now();
-        const threeSecondsElapsed: boolean = now - lastMouseMoveTime >= 4000;
-
-        const hoverContentElement: HTMLElement | null =
-          document.querySelector(".kladd");
-        if (hoverContentElement) {
-          if (threeSecondsElapsed) {
-            hoverContentElement.style.opacity = "1";
-          } else {
-            hoverContentElement.style.opacity = "0";
-          }
-        }
-
-        requestAnimationFrame(checkHoverContentVisibility);
-      };
-
-      checkHoverContentVisibility();
-    });
-  </script>
 </Layout>
 <style is:global>
-  .kladd {
-    font-family: var(--font-primary-heading);
-    font-family: "Tag";
-    color: var(--color-dark);
-    position: absolute;
-    top: 30%;
-    left: 0;
-    font-size: clamp(8rem, 40vw + 1rem, 26rem);
-    text-shadow: 4px 1px rgb(254, 252, 252);
-    z-index: 1000;
-    line-height: 0.6;
-    pointer-events: none;
-    rotate: 90deg;
-    transition: opacity 0.4s ease;
-    @media (min-width: 700px) {
-      transform: translate(-50%, -50%);
-      top: 50%;
-      left: 50%;
-      rotate: 0deg;
-      color: var(--color-light);
-      text-shadow: 2px 1px rgb(0, 0, 0);
-    }
-  }
   .card-links {
     display: grid;
     list-style: none;
     padding: 0;
-    gap: 0.5rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     min-height: 100svh;
   }
 
   .image-0 h2 {
-    transform: rotate(270deg);
+    transform: rotate(0);
   }
   .image-1 {
     transform: rotate(0deg);

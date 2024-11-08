@@ -5,11 +5,13 @@
   font-display: swap;
 }
 
+
+
 @font-face {
-  font-family: "Tag";
-  src: url("/fonts/aAnotherTag.ttf") format("truetype");
+  font-family: 'Orator Std Medium';
   font-style: normal;
-  font-display: swap;
+  font-weight: normal;
+  src: local('Orator Std Medium'), url("/fonts/OratorStd.woff") format('woff');
 }
 
 :root {
@@ -29,7 +31,7 @@
   --font-secondary-heading: system-ui, sans-serif;
   --font-primary-heading: "Bebas", Inter, Roboto, "Helvetica Neue", "Arial Nova",
     "Nimbus Sans", Arial, sans-serif;
-  --font-copy: Optima, Candara, "Noto Sans", source-sans-pro, sans-serif;
+  --font-copy: 'Orator Std Medium', system-ui;
 
   --size-fluid: clamp(1.125rem, 2.5vw, 1.5rem);
   --step-0: clamp(1.125rem, 1.0682rem + 0.2424vw, 1.25rem);
