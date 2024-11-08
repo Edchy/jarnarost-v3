@@ -11,12 +11,10 @@ interface Props {
 
 const {
   title = "Järna Rosteri",
-  description = "Järna Rosteri - Ekologiskt och biodynamiskt kaffe",
+  description = "Järna Rosteri - Ekologiskt & Biodynamiskt Kaffe",
   image = "/images/logos/Logga-Trans.png",
   canonicalURL = Astro.url.href,
 } = Astro.props;
-
-const pageTitle = title ? `Järna Rosteri | ${title}` : "Järna Rosteri";
 ---
 
 <!doctype html>
@@ -26,7 +24,7 @@ const pageTitle = title ? `Järna Rosteri | ${title}` : "Järna Rosteri";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/fav.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
     <meta
       name="keywords"

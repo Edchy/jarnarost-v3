@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
 interface Props {
   body: string;
   id: string;
@@ -11,13 +9,11 @@ interface Props {
 }
 
 const { body, id, href, imageSrc, hoverBg, color } = Astro.props;
-const alt =
-  "This is a randomly generated image from Järna Rosteri's image library. This library contains decorative images showing images from the local town, coffeebeans and bags, people, places, flavors, etc.";
 ---
 
 <li data-id={id} class:list={[id, "card-link"]}>
   <div>
-    <Image width={100} height={100} src={imageSrc} alt={alt} />
+    <img id={id} src={imageSrc} alt="#" />
     {
       href !== "#" ? (
         <a href={href} class="x">
