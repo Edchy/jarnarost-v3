@@ -59,10 +59,10 @@ async function loadImages() {
   articles.forEach((article) => {
     article.addEventListener("mouseenter", () => handleInteraction(article));
 
-    // article.addEventListener("touchstart", () => {
-    //   article.classList.add("active");
-    //   handleInteraction(article);
-    // });
+    article.addEventListener("touchstart", () => {
+      article.classList.toggle("active");
+      handleInteraction(article);
+    });
 
     // article.addEventListener("touchend", () => {
     //   setTimeout(() => {
@@ -70,11 +70,10 @@ async function loadImages() {
     //   }, 300); 
     // });
 
-    // Add click event listener for toggling class on mobile devices
-    article.addEventListener("click", () => {
-      article.classList.toggle("active");
-      handleInteraction(article);
-    });
+    // article.addEventListener("click", () => {
+    //   article.classList.toggle("active");
+    //   handleInteraction(article);
+    // });
   });
 }
 
