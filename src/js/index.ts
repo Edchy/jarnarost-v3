@@ -1,25 +1,25 @@
 
-  // document.addEventListener("DOMContentLoaded", () => {
-  //   const cardLinks = document.querySelectorAll(".card-link");
+  document.addEventListener("DOMContentLoaded", () => {
+    const cardLinks = document.querySelectorAll(".card-link");
 
-  //   cardLinks.forEach((li) => {
-  //     li.addEventListener("click", () => {
-  //       li.classList.toggle("focused");
-  //     });
+    cardLinks.forEach((li) => {
+      li.addEventListener("touchstart", () => {
+        li.classList.toggle("focused");
+      });
+      // li.addEventListener("click", () => {
+      //   li.classList.toggle("focused");
+      // });
 
-  //     li.addEventListener("touchstart", () => {
-  //       li.classList.toggle("focused");
-  //     });
 
-  //     li.addEventListener("mouseenter", () => {
-  //       li.classList.add("focused");
-  //     });
+      // li.addEventListener("mouseenter", () => {
+      //   li.classList.add("focused");
+      // });
 
-  //     li.addEventListener("mouseleave", () => {
-  //       li.classList.remove("focused");
-  //     });
-  //   });
-  // });
+      // li.addEventListener("mouseleave", () => {
+      //   li.classList.remove("focused");
+      // });
+    });
+  });
 
 async function loadImages() {
   const response = await fetch("../data/images.json");
