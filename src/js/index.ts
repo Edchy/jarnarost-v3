@@ -1,3 +1,4 @@
+
 async function loadImages() {
   const response = await fetch("../data/images.json");
   let images = await response.json();
@@ -36,44 +37,27 @@ async function loadImages() {
     }
   });
 
-  function handleInteraction(article: Element) {
-    const img = article.querySelector("img");
-    if (!img) return;
-
-    hoverCount++;
-
-    // Every third hover, show a special image
-    if (hoverCount % 4 === 0) {
-      img.src = specialImages[specialImageIndex];
-      specialImageIndex = (specialImageIndex + 1) % specialImages.length;
-    } else {
-      // Regular random image behavior
-      if (imageIndex >= images.length) {
-        shuffle(images);
-        imageIndex = 0;
-      }
-      img.src = images[imageIndex++];
-    }
-  }
-
   articles.forEach((article) => {
-    article.addEventListener("mouseenter", () => handleInteraction(article));
+    article.addEventListener("mouseenter", () => {
+      const img = article.querySelector("img");
+      if (!img) return;
 
-    article.addEventListener("touchstart", () => {
-      article.classList.toggle("active");
-      handleInteraction(article);
+      hoverCount++;
+
+      // Every third hover, show a special image
+      if (hoverCount % 4 === 0) {
+        img.src = specialImages[specialImageIndex];
+        specialImageIndex = (specialImageIndex + 1) % specialImages.length;
+      } else {
+        // Regular random image behavior
+        if (imageIndex >= images.length) {
+          shuffle(images);
+          imageIndex = 0;
+        }
+        img.src = images[imageIndex++];
+      }
     });
-
-    // article.addEventListener("touchend", () => {
-    //   setTimeout(() => {
-    //     article.classList.remove("active");
-    //   }, 300); 
-    // });
-
-    // article.addEventListener("click", () => {
-    //   article.classList.toggle("active");
-    //   handleInteraction(article);
-    // });
+ 
   });
 }
 

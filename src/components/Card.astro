@@ -85,23 +85,14 @@ const alt =
     overflow: clip;
   }
 
-  @media (pointer: fine) {
-    li:focus-within img:not(.logo),
-    li:hover img:not(.logo) {
-      opacity: 0;
-    }
-
-    li:focus-within .x,
-    li:hover .x {
-      opacity: 1;
-    }
-  }
-
-  .active:focus-within img:not(.logo) {
-    opacity: 1;
-  }
-  .active:focus-within .x {
+  li:focus-within img:not(.logo),
+  li:hover img:not(.logo) {
     opacity: 0;
+  }
+
+  li:focus-within .x,
+  li:hover .x {
+    opacity: 1;
   }
 
   li div {
