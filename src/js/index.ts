@@ -1,5 +1,4 @@
 
-
 async function loadImages() {
   const response = await fetch("../data/images.json");
   let images = await response.json();

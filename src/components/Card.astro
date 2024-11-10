@@ -84,12 +84,6 @@ const alt =
     color: var(--color);
     overflow: clip;
   }
-  /* .focused img:not(.logo) {
-    opacity: 0;
-  }
-  .focused .x {
-    opacity: 1;
-  } */
 
   li:focus-within img:not(.logo),
   li:hover img:not(.logo) {
@@ -99,6 +93,14 @@ const alt =
   li:focus-within .x,
   li:hover .x {
     opacity: 1;
+  }
+  @media (pointer: coarse) {
+    li:focus img:not(.logo) {
+      opacity: 1;
+    }
+    li:focus .x {
+      opacity: 0;
+    }
   }
 
   li div {

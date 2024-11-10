@@ -62,7 +62,6 @@ h2 {
 
 body {
   font-family: var(--font-copy);
-  background-color: var(--color-light);
   background-color: #FFF;
   color: var(--color-dark);
 
