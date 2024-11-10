@@ -59,17 +59,16 @@ async function loadImages() {
   articles.forEach((article) => {
     article.addEventListener("mouseenter", () => handleInteraction(article));
 
-    // Add touch event listeners for mobile devices
-    article.addEventListener("touchstart", () => {
-      article.classList.add("active");
-      handleInteraction(article);
-    });
+    // article.addEventListener("touchstart", () => {
+    //   article.classList.add("active");
+    //   handleInteraction(article);
+    // });
 
-    article.addEventListener("touchend", () => {
-      setTimeout(() => {
-        article.classList.remove("active");
-      }, 300); // Adjust the timeout as needed
-    });
+    // article.addEventListener("touchend", () => {
+    //   setTimeout(() => {
+    //     article.classList.remove("active");
+    //   }, 300); 
+    // });
 
     // Add click event listener for toggling class on mobile devices
     article.addEventListener("click", () => {
