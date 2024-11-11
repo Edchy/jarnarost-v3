@@ -1,3 +1,8 @@
+import JSConfetti from 'js-confetti'
+
+const jsConfetti = new JSConfetti()
+
+
 
 async function loadImages() {
   const response = await fetch("../data/images.json");
@@ -25,6 +30,13 @@ async function loadImages() {
   ];
   let specialImageIndex = 0;
 
+  // Determine grid dimensions based on the number of articles and screen size
+  const numCols = window.innerWidth >= 750 ? 3 : 2;
+  const numRows = Math.ceil(articles.length / numCols);
+
+  // Track the current state of the grid
+  const gridState: string[][] = Array.from({ length: numRows }, () => Array(numCols).fill(""));
+
   // Assign random images to articles initially
   articles.forEach((article, index) => {
     const img = article.querySelector("img");
@@ -37,7 +49,8 @@ async function loadImages() {
     }
   });
 
-  articles.forEach((article) => {
+  let triggered = false;
+  articles.forEach((article, articleIndex) => {
     article.addEventListener("mouseenter", () => {
       const img = article.querySelector("img");
       if (!img) return;
@@ -45,7 +58,7 @@ async function loadImages() {
       hoverCount++;
 
       // Every third hover, show a special image
-      if (hoverCount % 4 === 0) {
+      if (hoverCount % 3 === 0) {
         img.src = specialImages[specialImageIndex];
         specialImageIndex = (specialImageIndex + 1) % specialImages.length;
       } else {
@@ -56,9 +69,48 @@ async function loadImages() {
         }
         img.src = images[imageIndex++];
       }
+
+      // Update grid state
+      const rowIndex = Math.floor(articleIndex / numCols);
+      const colIndex = articleIndex % numCols;
+      gridState[rowIndex][colIndex] = img.src;
     });
- 
+    article.addEventListener("mouseleave", () => {
+      // Check for win condition
+      if(triggered) return;
+      if (checkWinCondition(gridState, numRows, numCols)) {
+        triggered = true;
+        jsConfetti.addConfetti({
+          emojis: ['', '⚡️', '💥', '✨', '💫', '❤️‍🔥'],
+          emojiSize: 100,
+          confettiRadius: 6,
+          confettiNumber: 10,
+
+})
+
+      }
+    });
   });
+}
+
+function checkWinCondition(grid: string[][], numRows: number, numCols: number): boolean {
+  // Check rows
+  for (let row = 0; row < numRows; row++) {
+    const rowImages = grid[row].filter((src) => src.includes("coffee") && src !== "");
+    if (rowImages.length === numCols && rowImages.length === 3) {
+      return true;
+    }
+  }
+
+  // Check columns
+  for (let col = 0; col < numCols; col++) {
+    const colImages = grid.map((row) => row[col]).filter((src) => src.includes("coffee") && src !== "");
+    if (colImages.length === numRows && colImages.length === 3) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function shuffle(array: string[]): void {
