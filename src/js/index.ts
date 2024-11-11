@@ -8,7 +8,8 @@ const logo = document.querySelector(".logo") as HTMLElement;
 
 const emojis = [";)", "=)", ":)", ":D", ":P", ":O"];
 const headings = ["Biodynamiskt kaffe", "Demeter kaffe", "Ekologiskt kaffe" ];
-const secondaryHeadings = ["Kaffe kultur", "Järna rosteri", "Hantverks rosteri"];
+// const secondaryHeadings = ["Kaffe kultur", "Järna rosteri", "Hantverks rosteri"];
+const secondaryHeadings = ["Kaff", "Järn", "Hant"];
 const instagramTexts = ["#senaste", "#kaffepaus", "#instagram"];
 const contact = [
   {
