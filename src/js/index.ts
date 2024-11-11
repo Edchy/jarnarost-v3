@@ -9,6 +9,7 @@ const logo = document.querySelector(".logo") as HTMLElement;
 const emojis = [";)", "=)", ":)", ":D", ":P", ":O"];
 const headings = ["Biodynamiskt kaffe", "Demeter kaffe", "Ekologiskt kaffe" ];
 const secondaryHeadings = ["Kaffe kultur", "Järna rosteri", "Hantverks rosteri"];
+const instagramTexts = ["#senaste", "#kaffepaus", "#instagram"];
 const contact = [
   {
     language: "English",
@@ -64,6 +65,7 @@ let emojiIndex = 0;
 let headingsIndex = 0;
 let secondaryHeadingsIndex = 0;
 let contactIndex = 0;
+let instagramTextsIndex = 0;
 
 
 
@@ -74,6 +76,14 @@ lis[0].addEventListener("click", () => {
     headingsIndex = 0;
   } else {
     headingsIndex++;
+  }
+});
+lis[1].addEventListener("click", () => {
+  lis[1].querySelector("h2").textContent = instagramTexts[instagramTextsIndex];
+  if (instagramTextsIndex === instagramTexts.length - 1) {
+    instagramTextsIndex = 0;
+  } else {
+    instagramTextsIndex++;
   }
 });
 
@@ -108,11 +118,7 @@ lis[5].addEventListener("click", () => {
   }
 });
 
-document.addEventListener('touchstart', function(event) {
-    if (event.touches.length > 1) {
-        event.preventDefault();
-    }
-}, { passive: false });
+
 
 async function loadImages() {
   const response = await fetch("../data/images.json");
