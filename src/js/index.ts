@@ -8,9 +8,8 @@ const logo = document.querySelector(".logo") as HTMLElement;
 
 const emojis = [";)", "=)", ":)", ":D", ":P", ":O"];
 const headings = ["Biodynamiskt kaffe", "Demeter kaffe", "Ekologiskt kaffe" ];
-// const secondaryHeadings = ["Kaffe kultur", "Järna rosteri", "Hantverks rosteri"];
-const secondaryHeadings = ["Kaff", "Järn", "Hant"];
-const instagramTexts = ["#senaste", "#kaffepaus", "#instagram"];
+const secondaryHeadings = ["Kaffe kultur", "Järna rosteri", "Hantverks rosteri"];
+const instagramTexts = ["#senaste", "#instagram"];
 const contact = [
   {
     language: "English",
@@ -89,11 +88,18 @@ lis[1].addEventListener("click", () => {
 });
 
 lis[2].addEventListener("click", () => {
-  lis[2].querySelector("h2").textContent = secondaryHeadings[secondaryHeadingsIndex];
-  if (secondaryHeadingsIndex === secondaryHeadings.length - 1) {
-    secondaryHeadingsIndex = 0;
-  } else {
-    secondaryHeadingsIndex++;
+  const heading = lis[2].querySelector("h2");
+  if (heading) {
+    // Save current height before text change
+    const currentHeight = heading.offsetHeight;
+    heading.style.minHeight = `${currentHeight}px`;
+    
+    heading.textContent = secondaryHeadings[secondaryHeadingsIndex];
+    if (secondaryHeadingsIndex === secondaryHeadings.length - 1) {
+      secondaryHeadingsIndex = 0;
+    } else {
+      secondaryHeadingsIndex++;
+    }
   }
 });
 // logo.addEventListener("click", () => {
