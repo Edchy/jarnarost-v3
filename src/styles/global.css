@@ -42,6 +42,10 @@
   --step-4: clamp(2.3328rem, 0.5167rem + 7.7485vw, 6.3281rem);
 }
 
+* {
+  touch-action: manipulation;
+}
+
 img,
 h2 {
   -webkit-user-select: none;

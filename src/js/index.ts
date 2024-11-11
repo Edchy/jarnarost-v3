@@ -95,11 +95,11 @@ lis[2].addEventListener("click", () => {
     secondaryHeadingsIndex++;
   }
 });
-logo.addEventListener("click", () => {
-  logo.style.filter = `hue-rotate(${deg}deg)`;
+// logo.addEventListener("click", () => {
+//   logo.style.filter = `hue-rotate(${deg}deg)`;
 
-  deg += 45;
-})
+//   deg += 45;
+// })
 lis[4].addEventListener("click", () => {
   lis[4].querySelector("h2").textContent = contact[contactIndex].word;
     if (contactIndex === contact.length - 1) {
