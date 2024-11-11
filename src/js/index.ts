@@ -108,7 +108,11 @@ lis[5].addEventListener("click", () => {
   }
 });
 
-
+document.addEventListener('touchstart', function(event) {
+    if (event.touches.length > 1) {
+        event.preventDefault();
+    }
+}, { passive: false });
 
 async function loadImages() {
   const response = await fetch("../data/images.json");
@@ -164,7 +168,7 @@ async function loadImages() {
       hoverCount++;
 
       // Every third hover, show a special image
-      if (hoverCount % 1 === 0) {
+      if (hoverCount % 3 === 0) {
         img.src = specialImages[specialImageIndex];
         specialImageIndex = (specialImageIndex + 1) % specialImages.length;
       } else {
