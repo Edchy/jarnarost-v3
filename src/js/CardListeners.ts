@@ -1,6 +1,6 @@
 const lis = document.querySelectorAll('[class^="image-"]');
 const logo = document.querySelector(".logo") as HTMLElement;
-const emojis = [";)", "=)", ":)", ":D", ":P", ":O"];
+const emojis = [";)", ":)"];
 const headings = ["Biodynamiskt kaffe", "Demeter kaffe", "Ekologiskt kaffe" ];
 const secondaryHeadings = ["Kaffe kultur", "Järna rosteri", "Hantverks rosteri"];
 const instagramTexts = ["#senaste", "#instagram"];
