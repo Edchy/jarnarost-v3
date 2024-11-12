@@ -67,9 +67,40 @@ const desc =
       </menu>
     </nav>
   </main>
+  <script src="../js/CardListeners.ts"></script>
   <script src="../js/index.ts"></script>
 </Layout>
 <style is:global>
+  .winning-card img {
+    transition: all 0.3s;
+    /* rotate: 90deg; */
+    animation: wobble 0.25s;
+  }
+  @keyframes rotate90 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(90deg);
+    }
+  }
+  @keyframes wobble {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+    75% {
+      transform: rotate(5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
   .card-links {
     display: grid;
     list-style: none;
