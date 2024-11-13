@@ -89,10 +89,11 @@ async function loadImages() {
       if (checkWinCondition(gridState, numRows, numCols)) {
       // triggered = true;
       jsConfetti.addConfetti({
-        emojis: ['🔥', '⚡️'],
-        emojiSize: 50,
+        // emojis: ['🔥', '⚡️'],
+        emojis: ['☕️'],
+        emojiSize: 100,
         confettiRadius: 25,
-        confettiNumber: 6,
+        confettiNumber: 10,
       });
       }
     };

@@ -4,64 +4,64 @@ const emojis = [";)", ":)"];
 const headings = ["Biodynamiskt kaffe", "Demeter kaffe", "Ekologiskt kaffe" ];
 const secondaryHeadings = ["Kaffe kultur", "Järna rosteri", "Hantverks rosteri"];
 const instagramTexts = ["#senaste", "#instagram"];
-const contact = [
-    {
-    language: "Arabic",
-    word: "اتصال",
-    pronunciation: "ittisāl"
-  },
-  {
-    language: "English",
-    word: "Contact"
-  },
-    {
-    language: "Japanese",
-    word: "連絡",
-    pronunciation: "renraku"
-  },
-  {
-    language: "Latin",
-    word: "Contacto",
+// const contact = [
+//     {
+//     language: "Arabic",
+//     word: "اتصال",
+//     pronunciation: "ittisāl"
+//   },
+//   {
+//     language: "English",
+//     word: "Contact"
+//   },
+//     {
+//     language: "Japanese",
+//     word: "連絡",
+//     pronunciation: "renraku"
+//   },
+//   {
+//     language: "Latin",
+//     word: "Contacto",
     
-  },
-    {
-    language: "Chinese",
-    word: "联系",
-    pronunciation: "liánxì"
-  },
-    {
-    language: "Russian",
-    word: "Контакт",
-    pronunciation: "Kontakt"
-  },
+//   },
+//     {
+//     language: "Chinese",
+//     word: "联系",
+//     pronunciation: "liánxì"
+//   },
+//     {
+//     language: "Russian",
+//     word: "Контакт",
+//     pronunciation: "Kontakt"
+//   },
 
-  {
-    language: "Korean",
-    word: "연락",
-    pronunciation: "yeollak"
-  },
+//   {
+//     language: "Korean",
+//     word: "연락",
+//     pronunciation: "yeollak"
+//   },
 
-  {
-    language: "Thai",
-    word: "ติดต่อ",
-    pronunciation: "dtìt dtàaw"
-  },
-  {
-    language: "Hindi",
-    word: "संपर्क",
-    pronunciation: "sampark"
-  },
-  {
-    langauage: "Amharic (ethiopian)",
-    word: "ማግኘት",
-    pronunciation: "māgänät"
-  },
-  {
-    language: "Nordic",
-    word: "Kontakt",
-  },
+//   {
+//     language: "Thai",
+//     word: "ติดต่อ",
+//     pronunciation: "dtìt dtàaw"
+//   },
+//   {
+//     language: "Hindi",
+//     word: "संपर्क",
+//     pronunciation: "sampark"
+//   },
+//   {
+//     langauage: "Amharic (ethiopian)",
+//     word: "ማግኘት",
+//     pronunciation: "māgänät"
+//   },
+//   {
+//     language: "Nordic",
+//     word: "Kontakt",
+//   },
 
-];
+// ];
 let emojiIndex = 0;
 let headingsIndex = 0;
 let secondaryHeadingsIndex = 0;
@@ -98,20 +98,19 @@ lis[2].addEventListener("click", () => {
     secondaryHeadingsIndex++;
   }
 });
-logo.addEventListener("click", () => {
-  logo.style.filter = `hue-rotate(${deg}deg)`;
+// logo.addEventListener("click", () => {
+//   logo.style.filter = `hue-rotate(${deg}deg)`;
 
-  deg += 45;
-})
-lis[4].addEventListener("click", () => {
-  lis[4].querySelector("h2").textContent = contact[contactIndex].word;
-    if (contactIndex === contact.length - 1) {
-    contactIndex = 0;
-  } else {
-    contactIndex++;
-  }
-  // lis[4].querySelector("h2").style.rotate = lis[4].querySelector("h2").style.rotate === "180deg" ? "0deg" : "180deg";
-});
+//   deg += 45;
+// })
+// lis[4].addEventListener("click", () => {
+//   lis[4].querySelector("h2").textContent = contact[contactIndex].word;
+//     if (contactIndex === contact.length - 1) {
+//     contactIndex = 0;
+//   } else {
+//     contactIndex++;
+//   }
+// });
 lis[5].addEventListener("click", () => {
   lis[5].querySelector("h2").textContent = emojis[emojiIndex];
   if (emojiIndex === emojis.length - 1) {
