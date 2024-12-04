@@ -12,9 +12,10 @@ interface Props {
 const {
   title = "Järna Rosteri",
   description = "Järna Rosteri - Ekologiskt & Biodynamiskt Kaffe",
-  image = "/images/logos/Logga-Trans.png",
+  image = "/images/logos/logo.avif",
   canonicalURL = Astro.url.href,
 } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -33,6 +34,7 @@ const {
     <meta name="author" content="Järna Rosteri" />
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Järna Rosteri">
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
