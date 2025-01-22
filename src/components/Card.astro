@@ -96,6 +96,11 @@ const alt =
     opacity: 1;
   }
 
+  li:hover a {
+    color: green;
+    pointer-events: auto;
+  }
+
   li div {
     background-color: var(--hoverBg);
     position: relative;
@@ -133,6 +138,7 @@ const alt =
   a:is(:any-link, :visited, :active) {
     color: currentColor;
     text-decoration: none;
+    pointer-events: none;
     @media (min-width: 700px) {
       &:hover {
         color: oklch(from var(--hoverBg) calc(1 - 0.1) c h);
