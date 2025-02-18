@@ -17,7 +17,6 @@ const alt =
 
 <li tabindex="0" data-id={id} class:list={[id, "card-link"]}>
   <div>
-    <!-- <Image width={100} height={100} src={imageSrc} alt={alt} /> -->
     <img src={imageSrc} alt={alt} />
     {
       href !== "#" ? (
@@ -75,6 +74,7 @@ const alt =
       }
     }
   }
+
   .logo {
     width: max(230px, 22vw);
     padding-left: 10px;
@@ -84,20 +84,55 @@ const alt =
   li {
     color: var(--color);
     overflow: clip;
+    position: relative;
   }
 
-  li:focus-within img:not(.logo),
-  li:hover img:not(.logo) {
+  /* Base styles */
+  .x {
     opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Disable all pointer events by default */
   }
 
-  li:focus-within .x,
-  li:hover .x {
-    opacity: 1;
+  img:not(.logo) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
   }
 
-  li:hover a {
-    pointer-events: auto;
+  /* Touch device specific styles */
+  @media (hover: none) {
+    li.touch-active img:not(.logo) {
+      opacity: 0;
+    }
+
+    li.touch-active .x {
+      opacity: 1;
+      pointer-events: auto; /* Enable pointer events only when active */
+    }
+
+    /* Ensure links are never clickable when card is not active */
+    li:not(.touch-active) a,
+    li:not(.touch-active) .x {
+      pointer-events: none !important;
+    }
+  }
+
+  /* Hover device specific styles */
+  @media (hover: hover) {
+    li:hover img:not(.logo),
+    li:focus-within img:not(.logo) {
+      opacity: 0;
+    }
+
+    li:hover .x,
+    li:focus-within .x {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   li div {
@@ -116,28 +151,22 @@ const alt =
     }
   }
 
-  img:not(.logo) {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   .full-height {
     height: 100%;
   }
+
   .x {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    opacity: 0;
     z-index: 10;
   }
+
   a:is(:any-link, :visited, :active) {
     color: currentColor;
     text-decoration: none;
-    pointer-events: none;
+
     @media (min-width: 700px) {
       &:hover {
         color: oklch(from var(--hoverBg) calc(1 - 0.1) c h);
@@ -150,17 +179,77 @@ const alt =
     text-align: center;
     font-size: var(--step-3);
     line-height: 1;
-    /* word-break: break-all; */
     word-spacing: 100vw;
     transition: color 0.2s ease;
   }
+
   .image-5 h2 {
     font-family: var(--font-copy);
-    /* font-size: var(--step-4); */
-
     font-family:
       system-ui,
       -apple-system,
       BlinkMacSystemFont;
   }
 </style>
+
+<script>
+  function initializeTouchHandling() {
+    const cards = document.querySelectorAll(".card-link");
+
+    cards.forEach((card) => {
+      let touchStartTime: number;
+      let touchStartX: number;
+      let touchStartY: number;
+
+      card.addEventListener("touchstart", (e: TouchEvent) => {
+        // Don't prevent default here to allow scrolling
+        touchStartTime = Date.now();
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      });
+
+      card.addEventListener("touchend", (e: TouchEvent) => {
+        const touchEndTime = Date.now();
+        const touchDuration = touchEndTime - touchStartTime;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+
+        const distanceX = Math.abs(touchEndX - touchStartX);
+        const distanceY = Math.abs(touchEndY - touchStartY);
+
+        // If it's a tap (brief touch without much movement)
+        if (touchDuration < 200 && distanceX < 10 && distanceY < 10) {
+          const target = e.target as Element;
+
+          // If the card is not active, prevent any link clicks
+          if (!card.classList.contains("touch-active")) {
+            e.preventDefault();
+
+            // Remove active class from all other cards
+            cards.forEach((otherCard) => {
+              if (otherCard !== card) {
+                otherCard.classList.remove("touch-active");
+              }
+            });
+
+            // Activate this card
+            card.classList.add("touch-active");
+          }
+          // If the card is already active, allow link clicks to proceed normally
+        }
+      });
+    });
+
+    // Close active card when touching outside
+    document.addEventListener("touchstart", (e) => {
+      const target = e.target as Element;
+      if (!target.closest(".card-link")) {
+        cards.forEach((card) => card.classList.remove("touch-active"));
+      }
+    });
+  }
+
+  // Initialize when the DOM is ready
+  document.addEventListener("DOMContentLoaded", initializeTouchHandling);
+</script>
